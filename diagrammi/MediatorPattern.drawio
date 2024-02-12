@@ -1,0 +1,79 @@
+<mxfile host="Electron" modified="2024-02-12T16:17:35.672Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="vfal25iI2ihDUx0T1P6J" version="23.0.2" type="device">
+  <diagram name="Pagina-1" id="-MnqFrRiTWxvlWGkpsAa">
+    <mxGraphModel dx="840" dy="974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-5" value="&amp;lt;&amp;lt;Java Class&amp;gt;&amp;gt;&amp;nbsp; ClienteReal" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="50" width="190" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-5">
+          <mxGeometry y="26" width="190" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-8" value="+ ClienteReal(Mediator)&amp;nbsp; &amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-5">
+          <mxGeometry y="34" width="190" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-22" value="+ inviaRichiesta(String, String, String): void |&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-5">
+          <mxGeometry y="60" width="190" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-25" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="EubpmE8mgEjku7ahW2Gt-5" target="EubpmE8mgEjku7ahW2Gt-13">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="180" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-9" value="&amp;lt;&amp;lt;Java Interface&amp;gt;&amp;gt;&amp;nbsp; &amp;nbsp; Mediator&amp;nbsp;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="90" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-9">
+          <mxGeometry y="26" width="340" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-12" value="+ prenotaBicicletta(String, String, String): void&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-9">
+          <mxGeometry y="34" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-13" value="&amp;lt;&amp;lt;Java Class&amp;gt;&amp;gt; Cliente" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="300" width="280" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-14" value="- email: String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;- nome: String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;- cognome: String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;- password: String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;- mediator: Mediator" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-13">
+          <mxGeometry y="26" width="280" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-13">
+          <mxGeometry y="140" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-16" value="+ Cliente(Mediator)&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ Cliente(String, String)&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ Cliente(String, String, String, String)&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ getEmail(): String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ setEmail(String): void&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ getNome(): String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ setNome(String): void&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ getCognome(): String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ setCognome(String): void&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ getPassword(): String&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ setPassword(String): void&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;+ inviaRichiesta(String, String, String): void&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-13">
+          <mxGeometry y="148" width="280" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-17" value="&amp;lt;&amp;lt;Java Class&amp;gt;&amp;gt; Prenota" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="427" y="315" width="250" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-18" value="- clienti: List&amp;lt;Cliente&amp;gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;- amministratore: Amministratore&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;- esitoPrenotazione: boolean&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-17">
+          <mxGeometry y="26" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-17">
+          <mxGeometry y="110" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-20" value="&amp;nbsp;+ setEsitoPrenotazione(boolean)&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;&amp;nbsp;+ getEsitoPrenotazione(): boolean&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;&amp;nbsp;+ aggiungiCliente(Cliente)&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;&amp;nbsp;+ prenotaBicicletta(String, String, String): void&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;&amp;nbsp; inviaSMS(String, String): void&amp;nbsp;&lt;br style=&quot;padding: 0px; margin: 0px;&quot;&gt;&amp;nbsp; inviaEmail(String, String): void&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="EubpmE8mgEjku7ahW2Gt-17">
+          <mxGeometry y="118" width="250" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.971;exitY=-0.006;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="EubpmE8mgEjku7ahW2Gt-13" target="EubpmE8mgEjku7ahW2Gt-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-28" value="0..1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="330" y="105" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-29" value="-users&lt;br&gt;0..*&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="360" y="440" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.021;entryY=0.218;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EubpmE8mgEjku7ahW2Gt-20" target="EubpmE8mgEjku7ahW2Gt-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.453;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EubpmE8mgEjku7ahW2Gt-17" target="EubpmE8mgEjku7ahW2Gt-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EubpmE8mgEjku7ahW2Gt-32" value="-mediator" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="315" y="148" width="70" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
