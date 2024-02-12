@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ldp.demo.HelloController">
+   <children>
+      <Button fx:id="btnPrenotaBici" layoutX="14.0" layoutY="145.0" mnemonicParsing="false" onAction="#prenotaBici" prefHeight="110.0" prefWidth="249.0" text="Prenota Bici" />
+      <Button fx:id="btnRestituisciBici" layoutX="337.0" layoutY="145.0" mnemonicParsing="false" onAction="#restituisciBici" prefHeight="110.0" prefWidth="249.0" text="Restitusci Bici" />
+   </children>
+
+</AnchorPane>

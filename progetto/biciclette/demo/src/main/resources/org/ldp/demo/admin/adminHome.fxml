@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ldp.demo.HelloController">
+   <children>
+      <Button fx:id="showAddBike" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" onAction="#showAddBike" prefHeight="94.0" prefWidth="212.0" text="aggiungi bici a parcheggio" AnchorPane.bottomAnchor="244.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="62.0" />
+      <Button fx:id="showAddEquip" layoutX="14.0" layoutY="229.0" mnemonicParsing="false" onAction="#showAddEquip" prefHeight="94.0" prefWidth="212.0" text="aggiungi equipaggiamento a bici" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="229.0" />
+      <Button fx:id="showAddOrUpdateTariffa" layoutX="374.0" layoutY="62.0" mnemonicParsing="false" onAction="#showUpdateTariffa" prefHeight="94.0" prefWidth="212.0" text="aggiungi/aggiorna tariffe" />
+      <Label layoutX="278.0" layoutY="14.0" text="ADMIN" />
+      <Button fx:id="btnPercentualeUtilizzo" layoutX="380.0" layoutY="229.0" mnemonicParsing="false" onAction="#showPercentualeUtilizzo" prefHeight="94.0" prefWidth="212.0" text="percentuale utilizzo" />
+   </children>
+   
+</AnchorPane>

@@ -1,0 +1,20 @@
+.label-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.radio-button {
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 4px;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}

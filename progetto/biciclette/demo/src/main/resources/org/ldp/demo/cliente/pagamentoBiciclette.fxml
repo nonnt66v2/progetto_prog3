@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="297.0" prefWidth="424.0" stylesheets="@style/stylePagamento.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ldp.demo.PagamentoBicicletteController">
+    <HBox prefHeight="241.0" prefWidth="490.0">
+        <VBox blendMode="MULTIPLY" prefHeight="538.0" prefWidth="300.0">
+            <children>
+
+                <VBox alignment="CENTER" prefHeight="538.0" prefWidth="300.0" spacing="10" VBox.vgrow="ALWAYS">
+
+                    <Label styleClass="label-title" text="Scegli il metodo di pagamento:" />
+
+                    <RadioButton fx:id="radioContanti" styleClass="radio-button" text="Contanti" />
+                    <RadioButton fx:id="creditCardRadioButton" styleClass="radio-button" text="Carta di credito" />
+                    <RadioButton fx:id="debitCardRadioButton" styleClass="radio-button" text="Bancomat" />
+
+                    <Button fx:id="infoBtn" mnemonicParsing="false" onAction="#handleInfoMethod" styleClass="button" text="Inserisci Dati" />
+
+
+                </VBox>
+            </children>
+        </VBox>
+        <VBox alignment="CENTER" prefHeight="402.0" prefWidth="171.0">
+            <!--                Contanti richiede campo dati: Nome, Cognome, Codice Fiscale, Salario-->
+            <Label fx:id="nomeLabel" text="Nome" />
+            <TextField fx:id="nomeTextField" />
+
+            <Label fx:id="cognomeLabel" text="Cognome" />
+            <TextField fx:id="cognomeTextField" />
+
+            <Label fx:id="CfLabel" text="Codice Fiscale" />
+            <TextField fx:id="CfTextField" />
+
+            <Label fx:id="soldiLabel" text="Importo" />
+            <TextField fx:id="soldiTextField" />
+            <!--                Carta credito richiede campo dati: Numero carta, Data scadenza, CVV-->
+            <Label fx:id="numeroCartaLabel" text="Numero Carta" />
+            <TextField fx:id="numeroCartaTextField" />
+
+            <Label fx:id="dataScadenzaLabel" text="Data Scadenza" />
+            <TextField fx:id="dataScadenzaTextField" />
+
+            <Label fx:id="CVVLabel" text="CVV" />
+            <TextField fx:id="cvvTextField" />
+
+            <Button fx:id="pagaBtn" mnemonicParsing="false" onAction="#handlePaymentMethod" styleClass="button" text="Paga" />
+
+        </VBox>
+    </HBox>
+</AnchorPane>
