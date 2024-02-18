@@ -29,6 +29,9 @@ public class AggiuntaEquipaggiamentoController {
     public TextField TextFieldEquipaggiamentoPrezzo;
     public ListView listViewEquipaggiamentoPrezzo;
     private final Database db = new Database();
+    /***
+     * Metodo per inizializzare la finestra con i dati presenti nel database
+     */
     public void initialize() {
         try {
             listViewEquipaggiamentoNome.getItems().clear();
@@ -47,6 +50,11 @@ public class AggiuntaEquipaggiamentoController {
             }
         }
     }
+    /***
+     * Metodo per aggiungere un equipaggiamento al database
+     * @param actionEvent
+     */
+
 
     public void addEquipaggiamento(ActionEvent actionEvent) {
         try {
@@ -69,6 +77,11 @@ public class AggiuntaEquipaggiamentoController {
             }
         }
     }
+    /***
+     * Metodo per tornare alla home dell'amministratore
+     * @param event
+     * @throws IOException
+     */
 
     public void handleRetrunAdminHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/adminHome.fxml")));

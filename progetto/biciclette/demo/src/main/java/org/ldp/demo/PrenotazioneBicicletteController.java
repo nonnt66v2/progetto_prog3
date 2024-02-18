@@ -37,7 +37,9 @@ public class PrenotazioneBicicletteController {
     private JCheckBox[] checkBoxes;
     private ArrayList<String> categorieSelezionate = new ArrayList<>();
 
-
+    /***
+     * Metodo per inizializzare la finestra con i dati presenti nel database
+     */
     public void initialize() {
         clearAll();
         aggiungiCheckBoxes();
@@ -58,14 +60,19 @@ public class PrenotazioneBicicletteController {
             }
         }
     }
-
+    /***
+     * Metodo per pulire i campi di testo
+     */
     private void clearAll() {
         textFieldOrario.clear();
         textFieldCategoria.clear();
         listViewCategoria.getItems().clear();
         vBoxcheckboxContainer.getChildren().clear();
     }
-
+    /***
+     * Metodo per inviare una richiesta di prenotazione via SMS
+     * @param actionEvent
+     */
     public void inviaSMS(ActionEvent actionEvent) {
         Prenota p = new Prenota();
         Cliente cliente = new ClienteReal(p);
@@ -78,7 +85,10 @@ public class PrenotazioneBicicletteController {
         eseguiQuery(p);
 
     }
-
+    /***
+     * Metodo per inviare una richiesta di prenotazione via email
+     * @param actionEvent
+     */
     public void inviaEmail(ActionEvent actionEvent) {
         Prenota p = new Prenota();
         Cliente cliente = new ClienteReal(p);
@@ -91,7 +101,10 @@ public class PrenotazioneBicicletteController {
         eseguiQuery(p);
 
     }
-
+    /***
+     * Metodo per eseguire la query di prenotazione
+     * @param p
+     */
     private void eseguiQuery(Prenota p) {
         if (p.getEsitoPrenotazione()) {
             String querySelectBici = "SELECT * FROM dbBike.Bicicletta WHERE categoria_bici = '" + textFieldCategoria.getText() +
@@ -133,7 +146,9 @@ public class PrenotazioneBicicletteController {
 
         }
     }
-
+    /***
+     * Metodo per aggiungere i checkbox al VBox
+     */
     void aggiungiCheckBoxes() {
         try {
             String query = "SELECT * FROM dbBike.Equipaggiamento";
@@ -147,7 +162,11 @@ public class PrenotazioneBicicletteController {
             e.printStackTrace();
         }
     }
-
+    /***
+     * Metodo per creare un checkbox
+     * @param categoria
+     * @return
+     */
     private CheckBox getCheckBox(String categoria) {
         CheckBox checkBox = new CheckBox(categoria);
         checkBox.setOnAction(event -> {
@@ -162,7 +181,11 @@ public class PrenotazioneBicicletteController {
         });
         return checkBox;
     }
-
+    /***
+     * Metodo per tornare alla home dell'amministratore
+     * @param event
+     * @throws IOException
+     */
     public void handleRetrunAdminHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/clienteHome.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

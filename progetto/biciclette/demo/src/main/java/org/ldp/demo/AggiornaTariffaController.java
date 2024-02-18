@@ -36,6 +36,17 @@ public class AggiornaTariffaController extends Amministratore {
     public Button btnAggiornaTariffa;
     Database db = new Database();
 
+    /***
+        * Metodo per inizializzare la finestra con i dati presenti nel database
+     * @throws SQLException
+     * @throws IOException
+     * @throws EccezionePersonalizzata
+     * @throws ClassNotFoundException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     *
+     */
+
     public void initialize() {
         try {
             listViewCategoria.getItems().clear();
@@ -62,6 +73,16 @@ public class AggiornaTariffaController extends Amministratore {
     }
 
     int result;
+
+    /***
+     * Metodo per aggiornare la tariffa nel database
+     * @throws SQLException
+     * @throws IOException
+     * @throws EccezionePersonalizzata
+     * @throws ClassNotFoundException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
 
     public void aggiornaTariffa() throws SQLException {
         System.out.println(textViewNome.getText());
@@ -101,6 +122,12 @@ public class AggiornaTariffaController extends Amministratore {
         initialize();
 
     }
+    /***
+     * Metodo per tornare alla home dell'amministratore
+     * @param event
+     * @throws IOException
+     */
+
 
     public void handleRetrunAdminHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/adminHome.fxml")));

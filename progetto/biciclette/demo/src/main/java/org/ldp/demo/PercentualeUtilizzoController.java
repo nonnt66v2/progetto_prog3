@@ -29,6 +29,9 @@ public class PercentualeUtilizzoController {
         inizializzaCategorie();
         inizializzaBicilette();
     }
+    /***
+     * Metodo per inizializzare la choiceBox con le categorie di biciclette presenti nel database
+     */
     private void inizializzaCategorie(){
         try {
             String queryCategoria = "SELECT DISTINCT categoria_bici FROM Bicicletta";
@@ -65,6 +68,9 @@ public class PercentualeUtilizzoController {
             e.printStackTrace();
         }
     };
+    /***
+     * Metodo per inizializzare la choiceBox con le biciclette presenti nel database
+     */
     private void inizializzaBicilette(){
         try {
             String queryBicicletta = "SELECT id_bici FROM Bicicletta";
@@ -90,6 +96,10 @@ public class PercentualeUtilizzoController {
         }
     }
 
+    /***
+     * Metodo per tornare alla home dell'amministratore
+     * @throws IOException
+     */
     private String getString() {
         String biciSelezionata = biciclettaChoiceBox.getValue();
         return "SELECT *\n" +
@@ -106,6 +116,11 @@ public class PercentualeUtilizzoController {
                 "    risultati.id_bici = "+biciSelezionata+";\n";
     }
 
+    /***
+     * Metodo per tornare alla home dell'amministratore
+     * @param event
+     * @throws IOException
+     */
     public void handleRetrunAdminHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/adminHome.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

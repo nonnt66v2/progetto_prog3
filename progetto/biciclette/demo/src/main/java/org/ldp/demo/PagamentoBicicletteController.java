@@ -80,10 +80,15 @@ public class PagamentoBicicletteController {
     int importo;
     String filePrezzo = "prezzo.txt";
     String fileIdBici = "bici.txt";
-
-    public PagamentoBicicletteController() throws IOException {
-    }
-
+    /***
+     * Costruttore per inizializzare la finestra
+     * @throws IOException
+     */
+    public PagamentoBicicletteController() throws IOException {};
+    /***
+     * Metodo per inizializzare la finestra
+     * @throws IOException
+     */
     public void initialize() throws IOException {
         paymentToggleGroup = new ToggleGroup();
         radioContanti.setToggleGroup(paymentToggleGroup);
@@ -94,7 +99,12 @@ public class PagamentoBicicletteController {
         soldiTextField.setText(String.valueOf(importo));
         startVisibility();
     }
-
+    /***
+     * Metodo per gestire il pagamento
+     * @throws EccezionePersonalizzata
+     * @throws IOException
+     * @throws SQLException
+     */
     public void handlePaymentMethod() throws EccezionePersonalizzata, IOException, SQLException {
         RadioButton selectedRadioButton = (RadioButton) paymentToggleGroup.getSelectedToggle();
         String toogleGroupValue = selectedRadioButton.getText();
@@ -115,7 +125,9 @@ public class PagamentoBicicletteController {
             JOptionPane.showMessageDialog(null, met.paga());
         }
     }
-
+    /***
+     * Metodo per gestire la visibilità dei campi di testo
+     */
     private void startVisibility() {
         nomeLabel.setVisible(false);
         nomeTextField.setVisible(false);
@@ -133,7 +145,9 @@ public class PagamentoBicicletteController {
         cvvTextField.setVisible(false);
         pagaBtn.setVisible(false);
     }
-
+    /***
+     * Metodo per gestire la visibilità dei campi di testo
+     */
     private void cashVisibility() {
         nomeLabel.setVisible(true);
         nomeTextField.setVisible(true);
@@ -145,7 +159,9 @@ public class PagamentoBicicletteController {
         soldiTextField.setVisible(true);
         pagaBtn.setVisible(true);
     }
-
+    /***
+     * Metodo per gestire la visibilità dei campi di testo
+     */
     private void cartaVisibility() {
         cashVisibility();
         numeroCartaLabel.setVisible(true);
@@ -157,6 +173,11 @@ public class PagamentoBicicletteController {
 
     }
 
+    /***
+     * Metodo per gestire la visibilità dei campi di testo
+     * @param actionEvent
+     * @throws EccezionePersonalizzata
+     */
     public void handleInfoMethod(ActionEvent actionEvent) throws EccezionePersonalizzata {
         try {
             initialize();
@@ -174,7 +195,10 @@ public class PagamentoBicicletteController {
             throw new EccezionePersonalizzata("Seleziona qualcosa");
         }
     }
-
+    /***
+     * Metodo per tornare alla home del cliente
+     * @throws IOException
+     */
     private void mostraImporto() throws IOException {
 
         try {
@@ -203,18 +227,12 @@ public class PagamentoBicicletteController {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-//        FileReader fileReader2 = new FileReader(fileIdBici);
-//        //BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
-//        String line2 = "";
-//        while (line2 != null) {
-//            line2 = String.valueOf(fileReader2.read());
-//            id_bici.add(String.valueOf(Integer.parseInt(line2)));
-//        }
-        //bufferedReader.close();
-        //importo = restituzioneBicicletteController.getPrezzoTotale();
-        //id_bici = restituzioneBicicletteController.getId_bici();
     }
-
+    /***
+     * Metodo per resettare le informazioni delle bici
+     * @param MetodoPagamento
+     * @throws SQLException
+     */
     private void resetInfoBici(String MetodoPagamento)throws SQLException{
         Database db = new Database();
         for (String id_bici : id_bici) {
@@ -222,7 +240,6 @@ public class PagamentoBicicletteController {
             ResultSet rs = db.query(queryGetKmEffettuati);
             rs.next();
             int km_effettuati = rs.getInt("km_effettuati");
-            //int importo_bici = restituzioneBicicletteController.calcolaPrezzo(rs);
             String queryInsertPagamento = "INSERT INTO Paga (id_bici, email_cliente, km_effettuati, metodo_pagamento, importo) " +
                     "VALUES (" + Integer.parseInt(id_bici) + ", '"+Email.getIstanza().getEmail()+"',"+km_effettuati+" , '"+MetodoPagamento+"'," + importo + ")";
             db.update(queryInsertPagamento);
@@ -242,7 +259,11 @@ public class PagamentoBicicletteController {
         }
     }
 
-
+    /***
+     * Metodo per tornare alla home del cliente
+     * @param event
+     * @throws IOException
+     */
     public void handleReturnHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/clienteHome.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

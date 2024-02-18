@@ -33,6 +33,11 @@ public class AggiuntaBicicletteController extends Amministratore {
 
     Database db = new Database();
     @FXML
+    /***
+     * Metodo per aggiungere una bicicletta al parcheggio
+     * @throws SQLException
+     * @throws EccezionePersonalizzata
+     */
     public void aggiungiBiciclettaAParcheggio() throws SQLException, EccezionePersonalizzata {
 
         int id_bici = parseInt(idField.getText());
@@ -57,6 +62,12 @@ public class AggiuntaBicicletteController extends Amministratore {
             throw new EccezionePersonalizzata("\nErrore durante l'inserimento," + e.getMessage());
         }
     }
+
+    /***
+     * Metodo per tornare alla home dell'amministratore
+     * @param event
+     * @throws IOException
+     */
 
     public void handleRetrunAdminHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/adminHome.fxml")));

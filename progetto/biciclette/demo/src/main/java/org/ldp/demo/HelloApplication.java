@@ -9,6 +9,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class HelloApplication extends Application {
+    /***
+     * Metodo per inizializzare la finestra con i dati presenti nel database
+     * @throws SQLException
+     * @throws IOException
+     * @throws EccezionePersonalizzata
+     * @throws ClassNotFoundException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
     @Override
     public void start(Stage stage) throws IOException, RuntimeException, SQLException {
        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cliente/restituzioneBiciclette.fxml"));
@@ -23,6 +32,10 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+    /***
+     * Metodo per inizializzare la finestra con i dati presenti nel database
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }
