@@ -34,13 +34,13 @@ public class RestituzioneBicicletteController {
 
     Database db = new Database();
     Random random = new Random(100);
-    String fileNamePrezzo = "progetto/biciclette/demo/src/main/java/org/ldp/demo/prezzo.txt";
+    String fileNamePrezzo = "prezzo.txt";
     String fileNameIdBici = "bici.txt";
-    FileWriter fileout = new FileWriter(fileNamePrezzo);
-    // ... che incapsulo in un BufferedWriter...
-    BufferedWriter filebuf = new BufferedWriter(fileout);
-    // ... che incapsulo in un PrintWriter
-    PrintWriter printout = new PrintWriter(filebuf);
+//    FileWriter fileout = new FileWriter(fileNamePrezzo);
+//    // ... che incapsulo in un BufferedWriter...
+//    BufferedWriter filebuf = new BufferedWriter(fileout);
+//    // ... che incapsulo in un PrintWriter
+//    PrintWriter printout = new PrintWriter(filebuf);
 
     ArrayList<String> id_bici = new ArrayList<>();
 
@@ -182,8 +182,27 @@ public class RestituzioneBicicletteController {
          */
 
         //scrivi il prezzo totale in un file
-
-        printout.println(prezzoTotale);
+        try {
+            File myObj = new File(fileNamePrezzo);
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        //scrittura su un file
+        try {
+            FileWriter myWriter = new FileWriter(fileNamePrezzo);
+            myWriter.write(String.valueOf(prezzoTotale));
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
         //
 
@@ -195,11 +214,11 @@ public class RestituzioneBicicletteController {
 //            printWriter2.println(s);
 //        }
 //        setPrezzoTotale(prezzoTotale);
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/pagamentoBiciclette.fxml")));
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/pagamentoBiciclette.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void handleRetrunAdminHome(ActionEvent event) throws IOException {

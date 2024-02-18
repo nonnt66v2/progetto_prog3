@@ -16,7 +16,7 @@
                 <VBox alignment="CENTER" prefHeight="304.0" prefWidth="300.0" spacing="10" VBox.vgrow="ALWAYS">
                <VBox>
                   <children>
-                     <Button mnemonicParsing="false" text="Home" />
+                     <Button mnemonicParsing="false" onAction="#handleReturnHome" text="Home" />
                   </children>
                </VBox>
       
