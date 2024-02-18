@@ -20,14 +20,14 @@ public class HelloApplication extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException, RuntimeException, SQLException {
-       FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cliente/restituzioneBiciclette.fxml"));
+ //      FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cliente/restituzioneBiciclette.fxml"));
 //        Email.getIstanza().setEmail("c1@c1.it");
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cliente/restituzioneBiciclette.fxml"));
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login/login.fxml"));
+//       FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cliente/restituzioneBiciclette.fxml"));
+       FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login/login.fxml"));
 //
 
         Scene scene = new Scene(fxmlLoader.load(), 800, 800);
-        stage.setTitle("LOGIN!");
+        stage.setTitle("Biciclette");
         stage.setScene(scene);
         stage.show();
     }

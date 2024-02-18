@@ -92,7 +92,7 @@ public class AggiornaTariffaController extends Amministratore {
             System.out.println("Tariffa già presente, aggiorno il prezzo");
             try {
                 //String queryUpdate = "UPDATE dbBike.Tariffa SET prezzo_tariffa = ?,orario_inizio_tariffa = ?, orario_fine_tariffa = ?, categoria_bici = ? WHERE nome_tariffa = ?";
-                String queryUpdate = " UPDATE dbBike.Tariffa  SET prezzo_tariffa = ?,orario_inizio_tariffa = ?, orario_fine_tariffa = ? , prezzo_offerta = ? Where nome_tariffa = ?";
+                String queryUpdate = " UPDATE dbBike.Tariffa  SET prezzo_tariffa = ?,orario_inizio_tariffa = ?, orario_fine_tariffa = ? , categoria_bici= ? Where nome_tariffa = ?";
 
                 PreparedStatement ps = db.insert(queryUpdate);
                 ps.setString(5, textViewNome.getText());
