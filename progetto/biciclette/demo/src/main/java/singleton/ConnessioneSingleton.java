@@ -50,9 +50,9 @@ public class ConnessioneSingleton {
              * di classi Java. Questa istruzione è comune nei driver JDBC e viene spesso utilizzata
              * per registrare il driver JDBC con il DriverManager di Java.
              */
-            /*
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            non lo uso pi&ugrave; perch&egrave; ho linkato la libreria .jar
+
+            //Class.forName("com.mysql.jdbc.Driver");
+            /*non lo uso pi&ugrave; perch&egrave; ho linkato la libreria .jar
             */
             /**
              * La seguente istruzione permette di stabilire una connessione al database MySQL utilizzando il JDBC.
