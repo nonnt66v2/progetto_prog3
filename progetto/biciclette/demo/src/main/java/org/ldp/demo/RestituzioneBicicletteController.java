@@ -203,17 +203,32 @@ public class RestituzioneBicicletteController {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        //scrivi gli id delle bici in un file
+        try {
+            File myObj = new File(fileNameIdBici);
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        //scrittura su un file
+        try {
+            FileWriter myWriter = new FileWriter(fileNameIdBici);
+            for (String s : id_bici) {
+                myWriter.write(s);
+            }
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
 
-        //
-
-//        FileWriter fileWriter2 = new FileWriter(fileNameIdBici);
-//        BufferedWriter bufferedWriter2 = new BufferedWriter(fileWriter2);
-//        PrintWriter printWriter2 = new PrintWriter(bufferedWriter2);
-//
-//        for (String s : id_bici) {
-//            printWriter2.println(s);
-//        }
-//        setPrezzoTotale(prezzoTotale);
+        }
+        //mostra la schermata di pagamento
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/pagamentoBiciclette.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

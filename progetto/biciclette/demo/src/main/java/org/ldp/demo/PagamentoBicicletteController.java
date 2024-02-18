@@ -190,6 +190,19 @@ public class PagamentoBicicletteController {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        try {
+            File myObj = new File(fileIdBici);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                id_bici.add(data);
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 //        FileReader fileReader2 = new FileReader(fileIdBici);
 //        //BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
 //        String line2 = "";
