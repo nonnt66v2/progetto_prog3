@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ldp.demo.PercentualeUtilizzoController">
 
     <!-- ChoiceBox per selezionare la categoria -->
@@ -30,5 +31,6 @@
    <ChoiceBox fx:id="biciclettaChoiceBox" layoutX="396.0" layoutY="124.0" prefHeight="24.0" prefWidth="120.0" />
    <Label layoutX="323.0" layoutY="176.0" text="Percentuale Utilizzo:" />
    <Label fx:id="labelPercentualeUtilizzoBicicletta" layoutX="468.0" layoutY="176.0" prefHeight="16.0" prefWidth="120.0" />
+    <Button layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleRetrunAdminHome" text="Home" />
 
 </AnchorPane>

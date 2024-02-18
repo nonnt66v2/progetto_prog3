@@ -14,9 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import singleton.Database;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,18 +34,32 @@ public class RestituzioneBicicletteController {
 
     Database db = new Database();
     Random random = new Random(100);
-    String fileNamePrezzo = "prezzo.txt";
+    String fileNamePrezzo = "progetto/biciclette/demo/src/main/java/org/ldp/demo/prezzo.txt";
     String fileNameIdBici = "bici.txt";
-    FileWriter fileWriter = new FileWriter(fileNamePrezzo);
-    PrintWriter printWriter = new PrintWriter(fileWriter);
-    FileWriter fileWriter2 = new FileWriter(fileNameIdBici);
-    PrintWriter printWriter2 = new PrintWriter(fileWriter2);
+    FileWriter fileout = new FileWriter(fileNamePrezzo);
+    // ... che incapsulo in un BufferedWriter...
+    BufferedWriter filebuf = new BufferedWriter(fileout);
+    // ... che incapsulo in un PrintWriter
+    PrintWriter printout = new PrintWriter(filebuf);
 
     ArrayList<String> id_bici = new ArrayList<>();
 
-    public RestituzioneBicicletteController() throws IOException {
+    public void setPrezzoTotale(int prezzoTotale) {
+        this.prezzoTotale = prezzoTotale;
+    }
+    public int getPrezzoTotale() {
+        return prezzoTotale;
     }
 
+    public ArrayList<String> getId_bici() {
+        return id_bici;
+    }
+
+   public RestituzioneBicicletteController() throws IOException {
+    }
+    /***
+     * @throws Exception
+     */
     public void initialize() throws Exception {
         Email.getIstanza().setEmail("c1@c1.it");
 
@@ -74,7 +86,10 @@ public class RestituzioneBicicletteController {
             e.printStackTrace();
         }
     }
-
+    /***
+     * @param categoria
+     * @return
+     */
     private CheckBox getCheckBox(String categoria) {
         CheckBox checkBox = new CheckBox(categoria);
         checkBox.setOnAction(event -> {
@@ -89,6 +104,11 @@ public class RestituzioneBicicletteController {
         });
         return checkBox;
     }
+    /***
+     * @param categoria
+     * @param prezzo
+     * @return
+     */
     private CheckBox getCheckBox(int categoria,int prezzo) {
         CheckBox checkBox = new CheckBox(String.valueOf(categoria));
         int valore = prezzo;
@@ -114,6 +134,11 @@ public class RestituzioneBicicletteController {
         return checkBox;
     }
 
+
+    /***
+     * Aggiorna i km effettuati delle bici
+     * @throws SQLException
+     */
     private void aggiornaKmBici() throws SQLException {
         String query = "select * from Bicicletta";
         ResultSet rs = db.query(query);
@@ -126,6 +151,12 @@ public class RestituzioneBicicletteController {
             ps.execute();
         }
     }
+
+    /***
+     * @param rs
+     * @return
+     * @throws SQLException
+     */
     public int calcolaPrezzo(ResultSet rs)throws SQLException{
         String queryVerificaTariffa = "Select MIN(prezzo_tariffa) from Tariffa T JOIN Bicicletta B ON B.categoria_bici = T.categoria_bici WHERE B.categoria_bici ='"+rs.getString("categoria_bici")+"'";
         ResultSet rs2 = db.query(queryVerificaTariffa);
@@ -138,12 +169,41 @@ public class RestituzioneBicicletteController {
         }
     }
 
+    /***
+     * @param event
+     * @throws Exception
+     */
     public void pagamento(ActionEvent event) throws Exception {
-        for (String s : id_bici) {
-            printWriter2.println(s);
-        }
-        printWriter.println(prezzoTotale);
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/pagamentoBiciclette.fxml")));
+        /***
+         * 1. Calcola il prezzo totale
+         * 2. Salva il prezzo totale in un file
+         * 3. Salva gli id delle bici in un file
+         * 4. Mostra la schermata di pagamento
+         */
+
+        //scrivi il prezzo totale in un file
+
+        printout.println(prezzoTotale);
+
+        //
+
+//        FileWriter fileWriter2 = new FileWriter(fileNameIdBici);
+//        BufferedWriter bufferedWriter2 = new BufferedWriter(fileWriter2);
+//        PrintWriter printWriter2 = new PrintWriter(bufferedWriter2);
+//
+//        for (String s : id_bici) {
+//            printWriter2.println(s);
+//        }
+//        setPrezzoTotale(prezzoTotale);
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/pagamentoBiciclette.fxml")));
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+    }
+
+    public void handleRetrunAdminHome(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/clienteHome.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

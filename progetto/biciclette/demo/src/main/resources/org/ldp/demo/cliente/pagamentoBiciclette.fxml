@@ -8,12 +8,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="297.0" prefWidth="424.0" stylesheets="@style/stylePagamento.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ldp.demo.PagamentoBicicletteController">
+<AnchorPane prefHeight="296.0" prefWidth="507.0" stylesheets="@style/stylePagamento.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ldp.demo.PagamentoBicicletteController">
     <HBox prefHeight="241.0" prefWidth="490.0">
         <VBox blendMode="MULTIPLY" prefHeight="538.0" prefWidth="300.0">
             <children>
 
-                <VBox alignment="CENTER" prefHeight="538.0" prefWidth="300.0" spacing="10" VBox.vgrow="ALWAYS">
+                <VBox alignment="CENTER" prefHeight="304.0" prefWidth="300.0" spacing="10" VBox.vgrow="ALWAYS">
+               <VBox>
+                  <children>
+                     <Button mnemonicParsing="false" text="Home" />
+                  </children>
+               </VBox>
+      
+                  <Label fx:id="soldiLabel" text="Importo" />
+                  <TextField fx:id="soldiTextField" prefHeight="24.0" prefWidth="190.0" />
 
                     <Label styleClass="label-title" text="Scegli il metodo di pagamento:" />
 
@@ -37,9 +45,6 @@
 
             <Label fx:id="CfLabel" text="Codice Fiscale" />
             <TextField fx:id="CfTextField" />
-
-            <Label fx:id="soldiLabel" text="Importo" />
-            <TextField fx:id="soldiTextField" />
             <!--                Carta credito richiede campo dati: Numero carta, Data scadenza, CVV-->
             <Label fx:id="numeroCartaLabel" text="Numero Carta" />
             <TextField fx:id="numeroCartaTextField" />
@@ -53,5 +58,6 @@
             <Button fx:id="pagaBtn" mnemonicParsing="false" onAction="#handlePaymentMethod" styleClass="button" text="Paga" />
 
         </VBox>
+
     </HBox>
 </AnchorPane>

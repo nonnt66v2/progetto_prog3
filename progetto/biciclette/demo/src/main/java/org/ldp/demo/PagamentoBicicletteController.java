@@ -3,6 +3,10 @@ package org.ldp.demo;
 import application.Email;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import factory_method.*;
 import javafx.scene.control.Button;
@@ -10,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import singleton.Database;
 
 import javax.swing.*;
@@ -19,6 +24,7 @@ import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PagamentoBicicletteController {
 
@@ -66,9 +72,9 @@ public class PagamentoBicicletteController {
     @FXML
     private VBox parameterContainer; // Contenitore per i campi di testo dei parametri
 
-    ArrayList<Integer> id_bici = new ArrayList<>();
+    ArrayList<String> id_bici = new ArrayList<>();
 
-    private RestituzioneBicicletteController restituzioneBicicletteController = new RestituzioneBicicletteController();
+    //private RestituzioneBicicletteController restituzioneBicicletteController = new RestituzioneBicicletteController();
 
     int importo;
 
@@ -170,35 +176,39 @@ public class PagamentoBicicletteController {
         String filePrezzo = "prezzo.txt";
         String fileIdBici = "bici.txt";
         FileReader fileReader = new FileReader(filePrezzo);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            importo = Integer.parseInt(line);
-        }
-        bufferedReader.close();
+//        //BufferedReader bufferedReader = new BufferedReader(fileReader);
+//        String line;
+//        while ((line = bufferedReader.readLine()) != null) {
+//            importo = Integer.parseInt(line);
+//        }
+//        bufferedReader.close();
+        importo = fileReader.read();
         FileReader fileReader2 = new FileReader(fileIdBici);
-        BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
-        String line2;
-        while ((line2 = bufferedReader2.readLine()) != null) {
-            id_bici.add(Integer.parseInt(line2));
+        //BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
+        String line2 = "";
+        while (line2 != null) {
+            line2 = String.valueOf(fileReader2.read());
+            id_bici.add(String.valueOf(Integer.parseInt(line2)));
         }
-        bufferedReader.close();
+        //bufferedReader.close();
+        //importo = restituzioneBicicletteController.getPrezzoTotale();
+        //id_bici = restituzioneBicicletteController.getId_bici();
     }
 
     private void resetInfoBici(String MetodoPagamento)throws SQLException{
         Database db = new Database();
-        for (int id_bici : id_bici) {
-            String queryGetKmEffettuati = "SELECT km_effettuati FROM Bicicletta WHERE id_bici = " + id_bici;
+        for (String id_bici : id_bici) {
+            String queryGetKmEffettuati = "SELECT km_effettuati FROM Bicicletta WHERE id_bici = " + Integer.parseInt(id_bici);
             ResultSet rs = db.query(queryGetKmEffettuati);
             rs.next();
             int km_effettuati = rs.getInt("km_effettuati");
-            int importo_bici = restituzioneBicicletteController.calcolaPrezzo(rs);
+            //int importo_bici = restituzioneBicicletteController.calcolaPrezzo(rs);
             String queryInsertPagamento = "INSERT INTO Paga (id_bici, email_cliente, km_effettuati, metodo_pagamento, importo) " +
-                    "VALUES (" + id_bici + ", '"+Email.getIstanza().getEmail()+"',"+km_effettuati+" , '"+MetodoPagamento+"'," + importo_bici + ")";
+                    "VALUES (" + Integer.parseInt(id_bici) + ", '"+Email.getIstanza().getEmail()+"',"+km_effettuati+" , '"+MetodoPagamento+"'," + importo + ")";
             db.update(queryInsertPagamento);
-            String queryResetInfoBici = "UPDATE Bicicletta SET km_effettuati = 0,disponibile = true WHERE id_bici = " + id_bici;
+            String queryResetInfoBici = "UPDATE Bicicletta SET km_effettuati = 0,disponibile = true WHERE id_bici = " + Integer.parseInt(id_bici);
             db.update(queryResetInfoBici);
-            String removeFromPrenota = "DELETE FROM Prenota WHERE id_bici = " + id_bici;
+            String removeFromPrenota = "DELETE FROM Prenota WHERE id_bici = " + Integer.parseInt(id_bici);
             db.update(removeFromPrenota);
             String selezionaParcheggi = "SELECT id_parcheggio FROM Parcheggio";
             rs = db.query(selezionaParcheggi);
@@ -207,9 +217,17 @@ public class PagamentoBicicletteController {
                 parcheggio.add(rs.getInt("id_parcheggio"));
             }
             int parcheggioRandom = (int)(Math.random() * parcheggio.size());
-            String assegnaNuovoParcheggio= "UPDATE Bicicletta SET id_parcheggio = "+parcheggioRandom+" WHERE id_bici = " + id_bici;
+            String assegnaNuovoParcheggio= "UPDATE Bicicletta SET id_parcheggio = "+parcheggioRandom+" WHERE id_bici = " + Integer.parseInt(id_bici);
             db.update(assegnaNuovoParcheggio);
         }
+    }
+
+    public void handleRetrunAdminHome(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cliente/clienteHome.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
 

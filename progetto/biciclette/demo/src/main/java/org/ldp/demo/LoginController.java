@@ -274,7 +274,7 @@ public class LoginController {
          */
         if (rs.next()) {
             JOptionPane.showMessageDialog(null, "\nCredenziali valide, accesso consentito!");
-            Parent tableViewParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/aggiuntaBiciclette.fxml")));
+            Parent tableViewParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/adminHome.fxml")));
             /**
              * Creo una nuova scena, a partire dal layout dell'interfaccia utente appena memorizzato nell'oggetto
              * di tipo Parent.
@@ -506,7 +506,7 @@ public class LoginController {
      */
     @FXML
     void handleBack(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("adminHome.fxml")));
+        Parent tableViewParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login/login.fxml")));
         Scene tableViewScene = new Scene(tableViewParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);

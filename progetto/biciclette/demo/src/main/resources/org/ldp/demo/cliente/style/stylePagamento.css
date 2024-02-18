@@ -7,7 +7,7 @@
     -fx-font-size: 14px;
 }
 
-.button {
+.button#btnPagamento {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-size: 14px;
